@@ -1,0 +1,54 @@
+.task{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.35rem 2rem;
+
+  p{
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  i{
+    cursor: pointer;
+    font-size: 1.3rem;
+
+    &.delete{
+      color: red;
+
+      &:hover{
+        color: #8c0c0c;
+      }
+
+      &:active{
+        color: #cd4343;
+      }
+    }
+
+    &.settings{
+      color: gray;
+
+      &:hover{
+        color: #676767;
+      }
+
+      &:active{
+        color: #878787;
+      }
+    }
+  }
+
+  .task-manage-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .task-info{
+    width: 80%;
+    word-break: break-word;
+  }
+}

@@ -1,0 +1,12 @@
+<div *ngFor="let task of taskList" [attr.data-id]="task.id" class="task">
+  <div class="task-info">
+    <h2>{{task.title}}</h2>
+    <p>{{task.description}}</p>
+  </div>
+  <div class="task-manage-buttons">
+    <i class="fa fa-cogs settings"></i>
+    <i class="fa fa-trash delete"></i>
+  </div>
+</div>
+
+<h2 *ngIf="taskList.length === 0">No Tasks Found Yet.</h2>
