@@ -1,12 +1,14 @@
+@use '../../variables' as *;
+
 .header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
-  background-color: #218dd1;
+  background-color: $primary-color;
   border-radius: 1rem;
-  box-shadow: 2px 3px 4px #09466e;
+  box-shadow: 2px 3px 4px $primary-color;
 }
 
 .list{
@@ -19,6 +21,6 @@
   outline: none;
   border-radius: 0.5rem;
   padding: 1rem;
-  background-color: #ccc;
+  background-color: $gray-bg-color;
   box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
 }

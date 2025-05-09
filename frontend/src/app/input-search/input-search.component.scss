@@ -1,0 +1,40 @@
+@use '../../variables' as *;
+
+.input-group {
+  width: max-content;
+  margin: 0.5rem auto 0;
+  position: relative;
+
+  .input {
+    border: solid 3px $primary-color-shadow;
+    border-radius: 1rem;
+    background: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: $primary-color;
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus,
+    &:valid {
+      outline: none;
+      border: 3px solid $primary-color;
+
+      ~ .user-label {
+        transform: translateY(-50%) scale(0.8);
+        background-color: $gray-bg-color;
+        padding: 0 0.2rem;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .user-label {
+    position: absolute;
+    left: 0.6rem;
+    color: $primary-color-shadow;
+    font-weight: bold;
+    pointer-events: none;
+    transform: translateY(0.65rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

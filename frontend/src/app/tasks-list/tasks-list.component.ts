@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {InputSearchComponent} from '../input-search/input-search.component';
 
 @Component({
   selector: 'app-tasks-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, InputSearchComponent],
   templateUrl: './tasks-list.component.html',
   styleUrls: ['./tasks-list.component.scss']
 })

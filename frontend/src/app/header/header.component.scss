@@ -1,5 +1,7 @@
+@use '../../variables' as *;
+
 .heading{
-  color: white;
+  color: $text-bg-light;
 }
 
 .add-task-button{
@@ -11,17 +13,16 @@
   border: 1px solid;
   border-radius: 2rem;
   padding: 0.5rem 1rem;
-  background-color: #ffffff;
-  color: #218dd1;
-  box-shadow: 2px 2px 4px #09466e;
+  background-color: $text-bg-light;
+  color: $primary-color;
+  box-shadow: 2px 2px 4px $primary-color-shadow;
 
   &:hover{
-    background-color: #d1d1d1;
-    box-shadow: 4px 4px 8px #09466e;
+    background-color: $btn-hover-color;
+    box-shadow: 4px 4px 8px $primary-color-shadow;
   }
 
   &:active {
-    padding: 0.55rem 1.05rem;
-    font-size: 1.11rem;
+    padding: 0.52rem 1.01rem;
   }
 }

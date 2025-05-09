@@ -1,8 +1,10 @@
+@use '../../variables' as *;
+
 .task{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: white;
+  background-color: $text-bg-light;
   padding: 0.35rem 2rem;
 
   p{
@@ -17,26 +19,26 @@
     font-size: 1.3rem;
 
     &.delete{
-      color: red;
+      color: $delete-primary-color;
 
       &:hover{
-        color: #8c0c0c;
+        color: $delete-primary-color-hover;
       }
 
       &:active{
-        color: #cd4343;
+        color: $delete-primary-color-active;
       }
     }
 
     &.settings{
-      color: gray;
+      color: $settings-primary-color;
 
       &:hover{
-        color: #676767;
+        color: $settings-primary-color-hover;
       }
 
       &:active{
-        color: #878787;
+        color: $settings-primary-color-active;
       }
     }
   }
