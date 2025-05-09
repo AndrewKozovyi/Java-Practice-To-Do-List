@@ -1,14 +1,13 @@
-<div class="faint-background">
-  <div class="add-task-box">
-    <h2>TASK</h2>
-    <img src=""/>
+<div class="faint-background" *ngIf="popupService.popupVisible$ | async" (click)="popupService.close()"></div>
 
-    <app-input-moving-letters class="title-input" letters="Tittle"></app-input-moving-letters>
-    <app-input-moving-letters class="description-input" letters="Desciption"></app-input-moving-letters>
+<div class="add-task-box">
+  <i class="fa fa-close close-add-task-box" (click)="popupService.close()"></i>
 
-    <div class="add-task-buttons">
-      <button>DELETE</button>
-      <button>APPLY</button>
-    </div>
+  <app-input-moving-letters class="title-input" letters="Tittle"></app-input-moving-letters>
+  <app-input-description class="description-input"></app-input-description>
+
+  <div class="add-task-buttons">
+    <button class="delete">DELETE</button>
+    <button class="apply">APPLY</button>
   </div>
 </div>

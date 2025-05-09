@@ -18,11 +18,11 @@
   box-shadow: 2px 2px 4px $primary-color-shadow;
 
   &:hover{
-    background-color: $btn-hover-color;
+    background-color: $btn-text-hover-color;
     box-shadow: 4px 4px 8px $primary-color-shadow;
   }
 
   &:active {
-    padding: 0.52rem 1.01rem;
+    transform: scale(0.98);
   }
 }

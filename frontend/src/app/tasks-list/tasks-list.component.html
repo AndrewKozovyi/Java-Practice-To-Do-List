@@ -6,9 +6,11 @@
     <p>{{task.description}}</p>
   </div>
   <div class="task-manage-buttons">
-    <i class="fa fa-cogs settings"></i>
+    <i class="fa fa-cogs settings" (click)="popupService.open()"></i>
     <i class="fa fa-trash delete"></i>
   </div>
 </div>
 
 <h2 *ngIf="taskList.length === 0">No Tasks Found Yet.</h2>
+
+<app-add-task-box *ngIf="popupService.popupVisible$ | async"></app-add-task-box>

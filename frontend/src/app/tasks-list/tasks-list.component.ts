@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {InputSearchComponent} from '../input-search/input-search.component';
+import {PopupService} from '../popup-service.service';
+import {AddTaskBoxComponent} from '../add-task-box/add-task-box.component';
 
 @Component({
   selector: 'app-tasks-list',
   standalone: true,
-  imports: [CommonModule, InputSearchComponent],
+  imports: [CommonModule, InputSearchComponent, AddTaskBoxComponent],
   templateUrl: './tasks-list.component.html',
   styleUrls: ['./tasks-list.component.scss']
 })
@@ -28,5 +30,6 @@ export class TasksListComponent {
    },
  ];
 
+  constructor(public popupService: PopupService) {}
 
 }

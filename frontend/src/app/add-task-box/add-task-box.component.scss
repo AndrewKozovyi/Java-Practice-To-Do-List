@@ -1,0 +1,94 @@
+@use '../../variables' as *;
+
+.faint-background{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: transparentize($faint-bg, 0.25);
+}
+
+.add-task-box{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: $text-bg-light;
+  width: 20rem;
+  min-height: fit-content;
+  max-height: 15rem;
+  border-radius: 2rem;
+  padding: 2rem;
+
+  h2{
+    margin-top: 0;
+  }
+
+  i{
+    position: absolute;
+    right: 0.7rem;
+    top: 0.6rem;
+    font-size: 1.5rem;
+  }
+
+  .add-task-buttons{
+    display: flex;
+    justify-content: space-around;
+
+    button{
+      all: unset;
+      cursor: pointer;
+      width: 5rem;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      padding: 0.2rem 0.5rem;
+      border-radius: 1rem;
+      color: $text-bg-light;
+
+      &:active{
+        transform: scale(0.98);
+      }
+
+      &.delete{
+        background-color: $delete-primary-color;
+
+        &:hover{
+          background-color: $delete-primary-color-hover;
+        }
+
+        &:active{
+          background-color: darken($delete-primary-color-active, 10%);
+        }
+      }
+
+      &.apply{
+        background-color: $primary-color;
+
+        &:hover{
+          background-color: $primary-color-shadow;
+        }
+
+        &:active {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+
+  .close-add-task-box{
+    cursor: pointer;
+    color: $settings-primary-color;
+
+    &:hover{
+      color: $settings-primary-color-hover;
+    }
+
+    &:active{
+      color: $settings-primary-color-active;
+    }
+  }
+}

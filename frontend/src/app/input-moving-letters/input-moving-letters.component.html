@@ -2,7 +2,7 @@
   <input type="text" required="">
   <label>
     <span
-      *ngFor="let letter of letters; index as i"
+      *ngFor="let letter of letterArray; index as i"
       [style.transition-delay]="(25 * 2 * i) + 'ms'"
     >{{ letter }}</span>
   </label>

@@ -1,0 +1,38 @@
+@use '../../variables' as *;
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 2rem;
+
+  label.text {
+    font-size: 1rem;
+    color: $primary-color;
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 0.5rem;
+    padding: 0 0.04rem;
+    background: $text-bg-light;
+    width: fit-content;
+  }
+
+  textarea.input {
+    padding: 0.65rem 0.6rem;
+    font-size: 1rem;
+    border: 2px solid $primary-color;
+    border-radius: 0.5rem;
+    background: $text-bg-light;
+    color: $primary-color;
+    resize: vertical;
+    min-height: 4rem;
+    max-height: 12rem;
+    line-height: 1.5;
+    overflow: auto;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
