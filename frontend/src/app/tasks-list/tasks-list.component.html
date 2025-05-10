@@ -5,12 +5,18 @@
     <h2>{{task.title}}</h2>
     <p>{{task.description}}</p>
   </div>
+
   <div class="task-manage-buttons">
-    <i class="fa fa-cogs settings" (click)="popupService.open()"></i>
-    <i class="fa fa-trash delete"></i>
+    <i class="fa fa-cogs settings" (click)="onOpenPopup(task)"></i>
+    <i class="fa fa-trash delete" (click)="onRemoveTask(task.id!)"></i>
   </div>
 </div>
 
-<h2 *ngIf="taskList.length === 0">No Tasks Found Yet.</h2>
+<app-add-task-box
+  *ngIf="(popupService.popupVisible$ | async) && selectedTask"
+  [task]="selectedTask"
+  (removeTask)="onRemoveTask(selectedTask.id!)"
+  (updateTask)="onUpdateTask($event)"
+></app-add-task-box>
 
-<app-add-task-box *ngIf="popupService.popupVisible$ | async"></app-add-task-box>
+<h2 *ngIf="taskList.length === 0" class="noItems">No Tasks Found Yet.</h2>

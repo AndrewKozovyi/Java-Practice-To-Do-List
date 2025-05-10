@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {InputSearchComponent} from '../input-search/input-search.component';
 import {PopupService} from '../popup-service.service';
 import {AddTaskBoxComponent} from '../add-task-box/add-task-box.component';
+import {Task} from '../../interfaces';
 
 @Component({
   selector: 'app-tasks-list',
@@ -12,24 +13,23 @@ import {AddTaskBoxComponent} from '../add-task-box/add-task-box.component';
   styleUrls: ['./tasks-list.component.scss']
 })
 export class TasksListComponent {
- taskList: any = [
-   {
-     id: 1,
-     title: 'Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1',
-     description: 'Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1'
-   },
-   {
-     id: 2,
-     title: 'Task 2',
-     description: 'Task 2'
-   },
-   {
-     id: 3,
-     title: 'Task 3',
-     description: 'Task 3'
-   },
- ];
+  @Input() taskList!: Task[];
+  @Output() taskRemoved = new EventEmitter<number>();
+  @Output() updateTask = new EventEmitter<Task>();
+  selectedTask: Task | null = null;
 
   constructor(public popupService: PopupService) {}
 
+  onUpdateTask(updatedTask: Task) {
+    this.updateTask.emit(updatedTask);
+  }
+
+  onRemoveTask(id: number) {
+    this.taskRemoved.emit(id);
+  }
+
+  onOpenPopup(task: Task) {
+    this.selectedTask = task;
+    this.popupService.open();
+  }
 }

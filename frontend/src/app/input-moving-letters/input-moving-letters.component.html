@@ -1,9 +1,20 @@
 <div class="form-control">
-  <input type="text" required="">
+  <input
+    type="text"
+    [(ngModel)]="title"
+    (ngModelChange)="onTitleChange()"
+    required
+    minlength="1"
+    #titleInput="ngModel"
+  />
   <label>
     <span
       *ngFor="let letter of letterArray; index as i"
       [style.transition-delay]="(25 * 2 * i) + 'ms'"
     >{{ letter }}</span>
   </label>
+
+  <div *ngIf="titleInput.invalid && titleInput.touched" class="error">
+    *this field must be filled
+  </div>
 </div>

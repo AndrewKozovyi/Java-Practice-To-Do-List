@@ -1,13 +1,22 @@
 <div class="faint-background" *ngIf="popupService.popupVisible$ | async" (click)="popupService.close()"></div>
 
-<div class="add-task-box">
+<div class="add-task-box" *ngIf="taskCopy">
   <i class="fa fa-close close-add-task-box" (click)="popupService.close()"></i>
 
-  <app-input-moving-letters class="title-input" letters="Tittle"></app-input-moving-letters>
-  <app-input-description class="description-input"></app-input-description>
+  <app-input-moving-letters
+    class="title-input"
+    letters="Tittle"
+    [title]="taskCopy.title"
+    (titleChange)="onTitleChange($event)"
+  ></app-input-moving-letters>
+  <app-input-description
+    class="description-input"
+    [description]="taskCopy.description"
+    (descriptionChange)="onDescriptionChange($event)"
+  ></app-input-description>
 
   <div class="add-task-buttons">
-    <button class="delete">DELETE</button>
-    <button class="apply">APPLY</button>
+    <button class="delete" (click)="onDeleteClick(task.id!)">DELETE</button>
+    <button class="apply" (click)="onApplyClick()">APPLY</button>
   </div>
 </div>

@@ -1,2 +1,10 @@
-<app-header class="header"></app-header>
-<app-tasks-list class="list"></app-tasks-list>
+<app-header
+  class="header"
+  (taskAdded)="addTask($event)"
+></app-header>
+<app-tasks-list
+  class="list"
+  [taskList]="taskList"
+  (taskRemoved)="removeTask($event)"
+  (updateTask)="updateTask($event)"
+></app-tasks-list>

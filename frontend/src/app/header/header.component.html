@@ -1,2 +1,9 @@
 <h1 class="heading">TO DO LIST</h1>
-<button class="add-task-button">ADD TASK</button>
+<button class="add-task-button" (click)="addTask(); popupService.open()">ADD TASK</button>
+
+<app-add-task-box
+  *ngIf="popupService.popupVisible$ | async"
+  [task]="newTask"
+  (removeTask)="onRemoveTask(0)"
+  (updateTask)="onUpdateTask($event)"
+></app-add-task-box>
