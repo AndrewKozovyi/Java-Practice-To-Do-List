@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 import {TasksListComponent} from '../tasks-list/tasks-list.component';
 import {Task} from '../../interfaces';
+import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -12,24 +13,17 @@ import {Task} from '../../interfaces';
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
-export class ToDoListComponent {
-  taskList: Task[] = [
-    {
-      id: 1,
-      title: 'Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1 Task 1',
-      description: 'Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1Task 1'
-    },
-    {
-      id: 2,
-      title: 'Task 2',
-      description: 'Task 2'
-    },
-    {
-      id: 3,
-      title: 'Task 3',
-      description: 'Task 3'
-    },
-  ];
+export class ToDoListComponent implements OnInit {
+  taskList: Task[] = [];
+
+  constructor(private tasksService: TasksService) {}
+
+  ngOnInit() {
+    this.tasksService.getAllTasks().subscribe(data => {
+      console.log(data);
+      this.taskList = data;
+    });
+  }
 
   addTask(task: Task) {
     this.taskList.unshift(task);

@@ -3,6 +3,7 @@ import {AddTaskBoxComponent} from '../add-task-box/add-task-box.component';
 import {AsyncPipe, NgIf} from '@angular/common';
 import {PopupService} from '../popup-service.service';
 import {Task} from '../../interfaces';
+import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-header',
@@ -23,15 +24,15 @@ export class HeaderComponent{
     return this._newTask;
   }
 
-  constructor(public popupService: PopupService) {}
+  constructor(public popupService: PopupService, private taskService: TasksService) { }
 
   addTask() {
     const newTask = {
-      id: 0,
       title: 'New Task',
       description: 'New Task',
     };
     this.taskAdded.emit(newTask);
+    this.taskService.addTask(newTask).subscribe();
     this._newTask = newTask;
   }
 
